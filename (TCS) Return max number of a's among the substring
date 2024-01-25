@@ -1,0 +1,26 @@
+public class Main
+{
+	public static void main(String[] args) {
+		String s="bbbaaababa";
+		int n=3;
+		int temp=0;
+		int count=0,greatest=0;
+		if(s.length()>n){
+		for(int i=n;i<s.length();i+=n){
+		    String str=s.substring(temp,i);
+		    count=str.length()-str.replace("a","").length();
+		    if(count>greatest){
+		        greatest=count;
+		    }
+		    temp=i;
+		  //  System.out.println(str+" "+count);
+		    }
+		    String str=s.substring(temp,s.length());
+		    count=str.length()-str.replace("a","").length();
+	    if(count>greatest){
+		      greatest=count;
+		    }
+		    System.out.println(greatest);
+		}
+	}
+}
