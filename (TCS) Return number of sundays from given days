@@ -1,0 +1,73 @@
+class Node{
+    String data;
+    Node next;
+    Node(String val){
+        this.data=val;
+        this.next=null;
+    }
+}
+
+public class Main
+{
+    public static Node head=null;
+    void insert(String val){
+        Node n=new Node(val);
+        if(head==null){
+            head=n;
+        }
+        else{
+            Node temp=head;
+            while(temp.next!=null){
+                temp=temp.next;
+            }
+            temp.next=n;
+        }
+    }
+    void display(){
+        Node temp=head;
+        while(temp.next!=head){
+            System.out.print(temp.data+" ");
+            temp=temp.next;
+        }
+            System.out.print(temp.data+" ");
+    }
+    void circle(){
+        Node temp=head;
+        while(temp.next!=null){
+            temp=temp.next;
+        }
+        temp.next=head;
+    }
+    void operation(String day,int n){
+        int count=0;
+        Node temp=head;
+        while(temp.data!=day){
+            temp=temp.next;
+        }
+        for(int i=0;i<=n;i++){
+           if(temp.data=="sunday"){
+               count++;
+           }
+           temp=temp.next;
+        }
+        System.out.println(count);
+    }
+
+    
+    
+	public static void main(String[] args) {
+	    Main m=new Main();
+	    m.insert("sunday");
+	    m.insert("monday");
+	    m.insert("tuesday");
+	    m.insert("wednesday");
+	    m.insert("thursday");
+	    m.insert("friday");
+	    m.insert("saturday");
+	    m.circle();
+	    String day="monday";
+	    int days=21;
+	    m.operation(day,days);
+	   // m.display();
+	}
+}
