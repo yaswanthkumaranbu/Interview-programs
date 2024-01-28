@@ -1,0 +1,19 @@
+public class Main
+{
+	public static void main(String[] args) {
+	    int[] arr={5,2,3,7};  // Ending registration number of vehicles
+	    int date=12;
+	    int fineOdd=200;
+	    int fineEven=300;
+	    int sum=0;
+	    for(int i=0;i<arr.length;i++){
+	        if(date%2==0 && arr[i]%2!=0){
+	            sum+=fineOdd;
+	        }
+	        else if(date%2==1 && arr[i]%2!=1){
+	            sum+=fineEven;
+	        }
+	    }
+	    System.out.println("Total fine amount:"+sum);
+	}
+}
