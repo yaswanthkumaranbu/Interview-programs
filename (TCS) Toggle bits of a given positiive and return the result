@@ -1,0 +1,29 @@
+public class Main
+{
+	public static void main(String[] args) {
+		int decimal=1015; 
+		;
+		if(decimal<=15){
+		    System.out.print(decimal^15);
+		}
+		else if(decimal<31){
+		    System.out.print(decimal^31);
+		}
+		else if(decimal<=63){
+		    System.out.print(decimal^63);
+		}
+		else if(decimal<=127){
+		    System.out.print(decimal^127);
+		}
+		else if(decimal<=255){
+		    System.out.print(decimal^255);
+		}
+		else if(decimal<=511){
+		    System.out.print(decimal^511);
+		}
+		else if(decimal<=1023){
+		    System.out.print(decimal^1023);
+		}
+		
+	}
+}
