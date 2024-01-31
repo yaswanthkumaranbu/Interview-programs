@@ -1,0 +1,41 @@
+// start at (0,0), turn right move 10 units (n=0)
+// start at (10,0), turn upwards move 20 units  (n=1)
+// start at (10,20), turn left move 30 units  (n=2)
+// start at (-20,20), turn downwards move 40 units  (n=3)
+// start at (-20,-20), turn (again)right move 50 units  (n=4)
+// start at (30,-20), turn upwards move 60 units  (n=5).......
+public class Main
+{
+    static int x=0,y=0,d=0;
+    static void right(){
+        d=d+10;
+        x=x+d;
+    }
+    static void left(){
+        d=d+10;
+        x=x-d;
+    }
+    static void upward(){
+        d=d+10;
+        y=y+d;
+    }
+    static void downward(){
+        d=d+10;
+        y=y-d;
+    }
+	public static void main(String[] args) {
+	    int n=7;
+	    for(int i=1;i<=n;i++){
+	        int mod=i%4;
+	    if(mod==1)
+	    right();
+	    else if(mod==3)
+	    left();
+	    else if(mod==2)
+	    upward();
+	    else
+	    downward();
+	    }
+	    System.out.print(x+" "+y);
+	}
+}
