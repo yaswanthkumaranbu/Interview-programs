@@ -1,0 +1,29 @@
+import java.util.*;
+
+// 23GF = 10980
+
+public class Main
+{
+    static int pow(int n){
+        if(n==0){
+            return 1;
+        }
+        else{
+            return 17*pow(n-1);
+        }
+    }
+	public static void main(String[] args) {
+		String s="23GF";
+		int sum=0,len=s.length();
+		for(int i=len-1;i>=0;i--){
+		    char c=s.charAt(i);
+		    if(c>=65 && c<=71){
+		        sum+=(c-55)*pow(len-1-i);
+		    }
+		    else{
+		        sum+=(c-48)*pow(len-1-i);
+		    }
+		}
+		System.out.println(sum);
+	}
+}
