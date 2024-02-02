@@ -1,0 +1,95 @@
+
+// Mam's logic
+import java.util.ArrayList;
+class Node
+{
+    int key;
+    Node left;
+    Node right;
+    Node(int key)
+    {
+      this.key=key;
+      left=null;
+      right=null;
+    }
+}
+public class Main
+{
+    static boolean Traversal(Node root,int k,ArrayList<ArrayList<Integer>> arr,int index)
+    {
+        if(root==null)
+        {
+            return false;
+        }
+        if(root.key==k)
+        {
+            arr.get(index).add(root.key);
+            return true;
+        }
+        arr.get(index).add(root.key);
+        // System.out.println("Hi"+arr);
+      if(Traversal(root.left,k,arr,index))
+      {
+          return true;
+      }
+      else if(Traversal(root.right,k,arr,index))
+      {
+        return true;
+      }
+      else{
+      arr.get(index).remove(arr.get(index).size()-1);
+      return false;
+      }
+    }
+    
+    
+    
+	public static void main(String[] args) {
+	    Node n = new Node(5);
+	    n.left = new Node (10);
+	    n.right = new Node (15);
+	    n.left.left = new Node (20);
+	    n.left.right = new Node (25);
+	    n.right.left = new Node (30);
+	    n.right.left.left = new Node (50);
+	    n.right.left.right = new Node (60);
+	    n.right.left.right.right = new Node (80);
+	    n.right.right = new Node (35);
+	    n.right.right.right = new Node (40);
+	    
+	    int k=60;     // Inputs of lca
+	    int k1=80;      // Inputs of lca
+	    int index=0;
+	    
+	    ArrayList<ArrayList<Integer>> arr = new ArrayList<>();
+	    arr.add(new ArrayList<Integer>());
+	    arr.add(new ArrayList<Integer>());
+	    
+	    boolean bool=Traversal(n,k,arr,index); 
+	    boolean bool1=Traversal(n,k1,arr,index+1); 
+	    
+	    if(bool==true && bool1==true)
+	    {
+	    System.out.println("Nodes found !");
+	    }
+	    else{
+	    System.out.println("Not all nodes found !");
+	    }
+	    int min=Math.min(arr.get(0).size(),arr.get(1).size());
+	    int lca=-1;
+	    for(int i=0;i<min;i++)
+	    {
+	        if(arr.get(0).get(i)==arr.get(1).get(i))
+	        {
+	           lca=arr.get(0).get(i);
+	        }
+	    }
+	    if(lca!=-1)
+	    System.out.println("LCA of "+k+" & "+k1+" = "+lca);
+	    else
+	    {
+	    System.out.println("No LCA");
+	   // System.out.println(arr);
+	    }
+	}
+}
